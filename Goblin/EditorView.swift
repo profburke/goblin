@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EditorView: View {
-    let roll: Roll
+    @Binding var roll: Roll
 
     var body: some View {
         VStack {
@@ -21,6 +21,6 @@ struct EditorView: View {
 
 struct EditorView_Previews: PreviewProvider {
     static var previews: some View {
-        EditorView(roll: Roll(name: "Sample"))
+        EditorView(roll: .constant(Roll(name: "Sample")))
     }
 }

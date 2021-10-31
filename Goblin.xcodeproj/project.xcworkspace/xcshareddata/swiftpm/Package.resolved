@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "LineNoise",
+        "repositoryURL": "https://github.com/andybest/linenoise-swift",
+        "state": {
+          "branch": null,
+          "revision": "afc897c02b030af7333105c4fedcd843a8339238",
+          "version": "0.0.3"
+        }
+      },
+      {
+        "package": "Nimble",
+        "repositoryURL": "https://github.com/Quick/Nimble.git",
+        "state": {
+          "branch": null,
+          "revision": "e9d769113660769a4d9dd3afb855562c0b7ae7b0",
+          "version": "7.3.4"
+        }
+      },
+      {
+        "package": "Troll",
+        "repositoryURL": "https://github.com/profburke/troll",
+        "state": {
+          "branch": null,
+          "revision": "73494afa9270f16cddc0cb54b141bbed54a79176",
+          "version": "0.5.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

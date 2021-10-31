@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct GoblinApp: App {
+    @State private var rolls = Roll.starterRolls
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RollListView(rolls: $rolls)
         }
     }
 }
