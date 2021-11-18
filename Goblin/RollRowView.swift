@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+// Current Brick Wall:
+// can click on one of the enabled rolls and have it
+// update its "latest" property, once. Subsequent clicks
+// have no effect.
+//
+// Clicking on any other roll has no effect either.
+
 struct RollRowView: View {
     @Binding var roll: Roll
 
@@ -39,6 +46,9 @@ struct RollRowView: View {
         }
     }
 }
+
+// Merging these back into the above until I get the binding
+// issues sorted.
 
 //struct DieView: View {
 //    @Binding var roll: Roll
