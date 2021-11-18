@@ -134,13 +134,11 @@
 		C9A64F91272C6B8A00B6C58F /* Goblin */ = {
 			isa = PBXGroup;
 			children = (
-				C9A64F92272C6B8A00B6C58F /* GoblinApp.swift */,
-				C9A64F94272C6B8A00B6C58F /* RollListView.swift */,
 				C9A64F96272C6B8E00B6C58F /* Assets.xcassets */,
+				C9A64F92272C6B8A00B6C58F /* GoblinApp.swift */,
+				C9F35C222746CAE200A87CB3 /* Models */,
 				C9A64F98272C6B8E00B6C58F /* Preview Content */,
-				C9903762272DA9F600AB2F38 /* EditorView.swift */,
-				C9903764272E00AD00AB2F38 /* Roll.swift */,
-				C9454829272F46420002F6F6 /* RollRowView.swift */,
+				C9F35C212746CAAF00A87CB3 /* Views */,
 			);
 			path = Goblin;
 			sourceTree = "<group>";
@@ -183,6 +181,24 @@
 				C9A64FBA272C6B9200B6C58F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C9F35C212746CAAF00A87CB3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C9903762272DA9F600AB2F38 /* EditorView.swift */,
+				C9A64F94272C6B8A00B6C58F /* RollListView.swift */,
+				C9454829272F46420002F6F6 /* RollRowView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		C9F35C222746CAE200A87CB3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C9903764272E00AD00AB2F38 /* Roll.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

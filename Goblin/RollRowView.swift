@@ -16,7 +16,7 @@ struct RollRowView: View {
                 .foregroundColor(roll.compiled ? .red : .gray)
                 .onTapGesture {
                     if roll.compiled {
-                        print("Clicked \(roll.name)")
+                        roll.latest = roll.roll()
                     }
                 }
                 .padding(.trailing, 10.0)
@@ -27,7 +27,7 @@ struct RollRowView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Text(roll.name)
-                            .font(.title)
+                            .font(.callout)
                     }
                     if let latest = roll.latest {
                         Text(latest)
@@ -40,8 +40,44 @@ struct RollRowView: View {
     }
 }
 
+//struct DieView: View {
+//    @Binding var roll: Roll
+//
+//    var body: some View {
+//        Image(systemName: "die.face.6.fill")
+//            .foregroundColor(roll.compiled ? .red : .gray)
+//            .onTapGesture {
+//                if roll.compiled {
+//                    roll.latest = roll.roll()
+//                }
+//            }
+//            .padding(.trailing, 10.0)
+//
+//    }
+//}
+
+//struct RollDataView: View {
+//    let roll: Roll
+//
+//    var body: some View {
+//        VStack(alignment: .leading) {
+//            HStack {
+//                Text(roll.name)
+//                    .font(.callout)
+//            }
+//            if let latest = roll.latest {
+//                Text(latest)
+//                    .font(.footnote)
+//                    .italic()
+//            }
+//        }
+//    }
+//}
+
 struct RollRowView_Previews: PreviewProvider {
+    static let roll = Roll(name: "Some Roll", script: nil, latest: "3 3 4 5")
+
     static var previews: some View {
-        RollRowView(roll: .constant(Roll.starterRolls[0]))
+        RollRowView(roll: .constant(roll))
     }
 }

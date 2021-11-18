@@ -28,8 +28,21 @@ struct Roll: Identifiable {
         self.latest = latest
     }
 
-    mutating func roll() {
-        guard let expression = expression else { return }
+    mutating func compile() {
+        guard let script = script else { return }
+        let scanner = Scanner(script)
+        guard case .success(let tokens) = scanner.scan() else { return }
+        let parser = Parser(tokens)
+        guard case .success(let data) = parser.parse() else { return }
+        expression = data.expression
+    }
+
+    mutating func update(l: String) {
+        latest = l
+    }
+    
+    func roll() -> String? {
+        guard let expression = expression else { return nil }
 
         let interpeter = Interpreter(reporter: CircularFileErrorRerporter())
         let result = interpeter.evaluate(expression)
@@ -37,9 +50,9 @@ struct Roll: Identifiable {
         switch result {
         case .failure:
             // TODO: runtime error - signal somehow
-            break
+            return nil
         case .success(let value):
-            latest = "\(value)"
+            return "\(value)"
         }
     }
 }
@@ -49,6 +62,13 @@ extension Roll {
         [
             Roll(name: "D&D Attributes", script: "largest 3 4d6"),
             Roll(name: "Yahtzee", script: "5d6"),
+            Roll(name: "Risk"),
         ]
+    }
+}
+
+extension Roll: Equatable {
+    public static func ==(lhs: Roll, rhs: Roll) -> Bool {
+        return lhs.id == rhs.id
     }
 }

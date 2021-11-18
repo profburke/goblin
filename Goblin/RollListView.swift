@@ -13,8 +13,8 @@ struct RollListView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach (rolls) { r in
-                    RollRowView(roll: binding(for: r))
+                ForEach ($rolls) { $roll in
+                    RollRowView(roll: $roll)
                 }
                 .onDelete(perform: delete)
             }
@@ -25,14 +25,6 @@ struct RollListView: View {
                 Image(systemName: "plus")
             })
         }
-    }
-
-    private func binding(for roll: Roll) -> Binding<Roll> {
-        guard let index = rolls.firstIndex(where: { $0.id == roll.id }) else {
-            fatalError("Can't find roll in array.")
-        }
-
-        return $rolls[index]
     }
 
     private func delete(at offsets: IndexSet) {
