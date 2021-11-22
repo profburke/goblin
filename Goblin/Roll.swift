@@ -8,13 +8,13 @@
 import Foundation
 import Troll
 
-// TODO: mutable or not?
-// TODO: add a history of roll results...
-
-struct Roll: Identifiable {
+struct Roll: Identifiable, Codable {
     let id = UUID()
     var name: String
-    var script: String? // put a didSet handler on this to try compiling...
+    var script: String // put a didSet handler on this to try compiling...
+    // no, not really... do we want to try compiling on every key stroke when it's being edited?
+    // ok, well you could do like in the scrumdinger app...have a Roll.Data subtype and use
+    // that in the editor view...
     var latest: String?
     var expression: Expr?
 
@@ -22,14 +22,35 @@ struct Roll: Identifiable {
         return expression != nil
     }
 
-    init(name: String, script: String? = nil, latest: String? = nil) {
+    enum CodingKeys: CodingKey {
+        case name
+        case script
+        // add latest?
+    }
+
+    init(name: String, script: String = "d6", latest: String? = nil) {
         self.name = name
         self.script = script
         self.latest = latest
+
+        compile()
     }
 
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        name = try values.decode(String.self, forKey: .name)
+        script = try values.decode(String.self, forKey: .script)
+
+        compile()
+    }
+
+    // TODO: when do we want to invalidate the compiled expression?
+    // if we don't bother, then the following can happen:
+    // 1. enter new script
+    // 2. compile and there's an error
+    // 3. the previously compiled expression is still there
+    
     mutating func compile() {
-        guard let script = script else { return }
         let scanner = Scanner(script)
         guard case .success(let tokens) = scanner.scan() else { return }
         let parser = Parser(tokens)
@@ -37,10 +58,6 @@ struct Roll: Identifiable {
         expression = data.expression
     }
 
-    mutating func update(l: String) {
-        latest = l
-    }
-    
     func roll() -> String? {
         guard let expression = expression else { return nil }
 
@@ -58,17 +75,12 @@ struct Roll: Identifiable {
 }
 
 extension Roll {
-    static var starterRolls: [Roll] {
-        [
-            Roll(name: "D&D Attributes", script: "largest 3 4d6"),
+    static var starterRolls: [Roll] = [
+            Roll(name: "D&D Attribute", script: "x := largest 3 4d6; [sum x, x]"),
+            Roll(name: "D&D Character Gen", script: #""Str |>Dex|>Con|>Int|>Wis|>Chr" || 6'sum largest 3 4d6"#),
             Roll(name: "Yahtzee", script: "5d6"),
-            Roll(name: "Risk"),
+            Roll(name: "d6"),
+            Roll(name: "This should not be rollable", script: "12......14"),
+            Roll(name: "Ridiculous", script: "40 d7"),
         ]
-    }
-}
-
-extension Roll: Equatable {
-    public static func ==(lhs: Roll, rhs: Roll) -> Bool {
-        return lhs.id == rhs.id
-    }
 }

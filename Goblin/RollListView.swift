@@ -37,7 +37,12 @@ struct RollListView: View {
 }
 
 struct RollListView_Previews: PreviewProvider {
+
     static var previews: some View {
         RollListView(rolls: .constant(Roll.starterRolls))
+            .colorScheme(.light)
+
+        RollListView(rolls: .constant(Roll.starterRolls))
+            .colorScheme(.dark)
     }
 }
