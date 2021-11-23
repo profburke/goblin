@@ -11,20 +11,22 @@ struct EditorView: View {
     @Binding var roll: Roll
 
     var body: some View {
+        VStack {
         List {
             Section(header: Text("Name")) {
                 TextField("Title", text: $roll.name)
-                    .font(.title)
+                    .font(.body.lowercaseSmallCaps())
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
             }
 
             Section(header: Text("Script")) {
                 // TODO: use onCommit to attempt to compile?
-                // TODO: use a monospaced font?
                 TextEditor(text: $roll.script)
+                    .font(.system(.body, design: .monospaced))
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
+                    .frame(height: 200)
 
                 Button(action: {
                     print("compiling...")
@@ -33,6 +35,8 @@ struct EditorView: View {
                     Text("Compile")
                 }
             }
+        }
+            Spacer()
         }
     }
 }

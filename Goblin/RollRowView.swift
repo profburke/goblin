@@ -28,9 +28,9 @@ struct DieView: View {
 
     var body: some View {
         Image(systemName: "die.face.6.fill")
-        // https://stackoverflow.com/questions/56505692/how-to-resize-image-with-swiftui
-        // .resizable().aspectRatio(contentMode: ContentMode.fit).scaledToFit()
-        // https://sarunw.com/posts/how-to-resize-swiftui-image-and-keep-aspect-ratio/
+            .resizable()
+            .scaledToFit()
+            .frame(width: 30.0)
             .foregroundColor(roll.compiled ? .red : .gray)
             .onTapGesture {
                 if roll.compiled {
@@ -62,8 +62,22 @@ struct RollDataView: View {
 
 struct RollRowView_Previews: PreviewProvider {
     static let roll = Roll(name: "Some Roll", script: "4d6", latest: "3 3 4 5")
+    static let uncompiledRoll = Roll(name: "Won't Work", script: "2....4")
 
     static var previews: some View {
         RollRowView(roll: .constant(roll))
+            .padding()
+            .previewLayout(.sizeThatFits)
+            .colorScheme(.light)
+
+        RollRowView(roll: .constant(uncompiledRoll))
+            .padding()
+            .previewLayout(.sizeThatFits)
+            .colorScheme(.light)
+
+        RollRowView(roll: .constant(roll))
+            .padding()
+            .previewLayout(.sizeThatFits)
+            .colorScheme(.dark)
     }
 }

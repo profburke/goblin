@@ -19,11 +19,7 @@ struct RollListView: View {
                 .onDelete(perform: delete)
             }
             .navigationTitle("Rolls")
-            .navigationBarItems(trailing: Button(action: {
-                self.addItem()
-            }) {
-                Image(systemName: "plus")
-            })
+            .navigationBarItems(trailing: addButton)
         }
     }
 
@@ -34,15 +30,23 @@ struct RollListView: View {
     private func addItem() {
         rolls.append(Roll(name: "New Roll"))
     }
+
+    private var addButton: Button<Image> {
+        return Button(action: {
+            self.addItem()
+        }) {
+            Image(systemName: "plus")
+        }
+    }
 }
 
 struct RollListView_Previews: PreviewProvider {
 
     static var previews: some View {
         RollListView(rolls: .constant(Roll.starterRolls))
-            .colorScheme(.light)
+            .colorScheme(.dark)
 
         RollListView(rolls: .constant(Roll.starterRolls))
-            .colorScheme(.dark)
+            .colorScheme(.light)
     }
 }

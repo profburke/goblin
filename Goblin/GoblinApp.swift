@@ -11,17 +11,19 @@ import UIKit
 
 @main
 struct GoblinApp: App {
+    static let rollFilename = "rolls.json"
+
     @Environment(\.scenePhase) private var scenePhase
     @State private var rolls: [Roll] = {
-        let filePath = GoblinApp.dataPath(for: "rolls.json")
-        if FileManager().fileExists(atPath: filePath.path),
-           let data = try? Data(contentsOf: filePath),
+        let url = GoblinApp.saveFileURL
+
+        if FileManager().fileExists(atPath: url.path),
+           let data = try? Data(contentsOf: url),
            let rolls = try? JSONDecoder().decode([Roll].self, from: data),
            rolls.count >= 1 {
             return rolls
-            // TODO: this doesn't apparently use the init, because it's not
-            // calling .compile
         } else {
+            // TODO: signal could not find custom data, reading defaults?
             return Roll.starterRolls
         }
     }()
@@ -30,20 +32,20 @@ struct GoblinApp: App {
         WindowGroup {
             RollListView(rolls: $rolls)
         }
-        .onChange(of: scenePhase) { newScenePhase in
-            if newScenePhase == .inactive {
+        .onChange(of: scenePhase) { newPhase in
+            if newPhase == .inactive {
                 if let data = try? JSONEncoder().encode(rolls) {
-                   let filePath = GoblinApp.dataPath(for: "rolls.json")
-                    try? data.write(to: filePath)
+                    try? data.write(to: GoblinApp.saveFileURL)
+                } else {
+                    // TODO: signal error if cannot save
                 }
-                // TODO: signal error if cannot save
             }
         }
     }
 
-    static private func dataPath(for filename: String) -> URL {
+    static private var saveFileURL: URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentDirectory = paths[0]
-        return documentDirectory.appendingPathComponent(filename)
+        return documentDirectory.appendingPathComponent(rollFilename)
     }
 }
