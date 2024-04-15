@@ -1,5 +1,5 @@
 //
-//  RollListView.swift
+//  RollList.swift
 //  Example
 //
 //  Created by Matthew Burke on 10/29/21.
@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct RollListView: View {
+// TODO: use the new(ish) HintKit ...
+
+struct RollList: View {
     @Binding var rolls: [Roll]
 
     var body: some View {
@@ -18,7 +20,7 @@ struct RollListView: View {
                 // handler
                 List {
                     ForEach($rolls) { $roll in
-                        RollRowView(roll: $roll)
+                        RollRow(roll: $roll)
                     }
                     .onDelete(perform: delete)
                 }
@@ -57,10 +59,10 @@ struct RollListView: View {
 struct RollListView_Previews: PreviewProvider {
 
     static var previews: some View {
-        RollListView(rolls: .constant(Roll.starterRolls))
+        RollList(rolls: .constant(Roll.starterRolls))
             .colorScheme(.dark)
 
-        RollListView(rolls: .constant(Roll.starterRolls))
+        RollList(rolls: .constant(Roll.starterRolls))
             .colorScheme(.light)
     }
 }

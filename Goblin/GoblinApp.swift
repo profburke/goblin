@@ -15,7 +15,7 @@ struct GoblinApp: App {
 
     var body: some Scene {
         WindowGroup {
-            RollListView(rolls: $rolls)
+            RollList(rolls: $rolls)
         }
         .onChange(of: scenePhase) { newPhase in
             saveRolls(newPhase)

@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C945482A272F46420002F6F6 /* RollRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9454829272F46420002F6F6 /* RollRowView.swift */; };
+		C945482A272F46420002F6F6 /* RollRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9454829272F46420002F6F6 /* RollRow.swift */; };
 		C953F0442757132600749B3A /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9903762272DA9F600AB2F38 /* EditorView.swift */; };
-		C953F0452757132A00749B3A /* RollListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A64F94272C6B8A00B6C58F /* RollListView.swift */; };
-		C953F0462757132E00749B3A /* RollRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9454829272F46420002F6F6 /* RollRowView.swift */; };
+		C953F0452757132A00749B3A /* RollList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A64F94272C6B8A00B6C58F /* RollList.swift */; };
+		C953F0462757132E00749B3A /* RollRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9454829272F46420002F6F6 /* RollRow.swift */; };
 		C9903763272DA9F600AB2F38 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9903762272DA9F600AB2F38 /* EditorView.swift */; };
 		C9903765272E00AD00AB2F38 /* Roll.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9903764272E00AD00AB2F38 /* Roll.swift */; };
 		C9903768272E162700AB2F38 /* Troll in Frameworks */ = {isa = PBXBuildFile; productRef = C9903767272E162700AB2F38 /* Troll */; };
 		C9914B0527530385001CBEF4 /* Roll.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9903764272E00AD00AB2F38 /* Roll.swift */; };
 		C9914B08275303B4001CBEF4 /* Troll in Frameworks */ = {isa = PBXBuildFile; productRef = C9914B07275303B4001CBEF4 /* Troll */; };
 		C9A64F93272C6B8A00B6C58F /* GoblinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A64F92272C6B8A00B6C58F /* GoblinApp.swift */; };
-		C9A64F95272C6B8A00B6C58F /* RollListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A64F94272C6B8A00B6C58F /* RollListView.swift */; };
+		C9A64F95272C6B8A00B6C58F /* RollList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A64F94272C6B8A00B6C58F /* RollList.swift */; };
 		C9A64F97272C6B8E00B6C58F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9A64F96272C6B8E00B6C58F /* Assets.xcassets */; };
 		C9A64F9A272C6B8E00B6C58F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9A64F99272C6B8E00B6C58F /* Preview Assets.xcassets */; };
 		C9A64F9E272C6B8E00B6C58F /* Goblin WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C9A64F9D272C6B8E00B6C58F /* Goblin WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -57,13 +57,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C9454829272F46420002F6F6 /* RollRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollRowView.swift; sourceTree = "<group>"; };
+		C9454829272F46420002F6F6 /* RollRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollRow.swift; sourceTree = "<group>"; };
 		C9903762272DA9F600AB2F38 /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
 		C9903764272E00AD00AB2F38 /* Roll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roll.swift; sourceTree = "<group>"; };
 		C9914AF6275301A7001CBEF4 /* Hobgoblin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hobgoblin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9A64F8F272C6B8A00B6C58F /* Goblin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Goblin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9A64F92272C6B8A00B6C58F /* GoblinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoblinApp.swift; sourceTree = "<group>"; };
-		C9A64F94272C6B8A00B6C58F /* RollListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollListView.swift; sourceTree = "<group>"; };
+		C9A64F94272C6B8A00B6C58F /* RollList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollList.swift; sourceTree = "<group>"; };
 		C9A64F96272C6B8E00B6C58F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9A64F99272C6B8E00B6C58F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C9A64F9D272C6B8E00B6C58F /* Goblin WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Goblin WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,8 +191,8 @@
 			isa = PBXGroup;
 			children = (
 				C9903762272DA9F600AB2F38 /* EditorView.swift */,
-				C9A64F94272C6B8A00B6C58F /* RollListView.swift */,
-				C9454829272F46420002F6F6 /* RollRowView.swift */,
+				C9A64F94272C6B8A00B6C58F /* RollList.swift */,
+				C9454829272F46420002F6F6 /* RollRow.swift */,
 				C9FF8EB427AB6548004A1B09 /* LanguageExplainerView.swift */,
 			);
 			name = Views;
@@ -346,8 +346,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C953F0462757132E00749B3A /* RollRowView.swift in Sources */,
-				C953F0452757132A00749B3A /* RollListView.swift in Sources */,
+				C953F0462757132E00749B3A /* RollRow.swift in Sources */,
+				C953F0452757132A00749B3A /* RollList.swift in Sources */,
 				C953F0442757132600749B3A /* EditorView.swift in Sources */,
 				C9914B0527530385001CBEF4 /* Roll.swift in Sources */,
 			);
@@ -359,10 +359,10 @@
 			files = (
 				C9903763272DA9F600AB2F38 /* EditorView.swift in Sources */,
 				C9FF8EB527AB6548004A1B09 /* LanguageExplainerView.swift in Sources */,
-				C9A64F95272C6B8A00B6C58F /* RollListView.swift in Sources */,
+				C9A64F95272C6B8A00B6C58F /* RollList.swift in Sources */,
 				C9903765272E00AD00AB2F38 /* Roll.swift in Sources */,
 				C9A64F93272C6B8A00B6C58F /* GoblinApp.swift in Sources */,
-				C945482A272F46420002F6F6 /* RollRowView.swift in Sources */,
+				C945482A272F46420002F6F6 /* RollRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

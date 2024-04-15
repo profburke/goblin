@@ -1,5 +1,5 @@
 //
-//  RollRowView.swift
+//  RollRow.swift
 //  Goblin
 //
 //  Created by Matthew Burke on 10/31/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RollRowView: View {
+struct RollRow: View {
     @Binding var roll: Roll
 
     var body: some View {
@@ -70,17 +70,17 @@ struct RollRowView_Previews: PreviewProvider {
     static let uncompiledRoll = Roll(name: "Won't Work", script: "2....4")
 
     static var previews: some View {
-        RollRowView(roll: .constant(roll))
+        RollRow(roll: .constant(roll))
             .padding()
             .previewLayout(.sizeThatFits)
             .colorScheme(.light)
 
-        RollRowView(roll: .constant(uncompiledRoll))
+        RollRow(roll: .constant(uncompiledRoll))
             .padding()
             .previewLayout(.sizeThatFits)
             .colorScheme(.light)
 
-        RollRowView(roll: .constant(roll))
+        RollRow(roll: .constant(roll))
             .padding()
             .previewLayout(.sizeThatFits)
             .background(Color(rowBackgroundColor))
