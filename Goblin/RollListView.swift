@@ -12,14 +12,20 @@ struct RollListView: View {
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach ($rolls) { $roll in
-                    RollRowView(roll: $roll)
+//            ScrollViewReader { proxy in
+                // https://www.hackingwithswift.com/quick-start/swiftui/how-to-scroll-to-a-specific-row-in-a-list
+                // scroll to newly added item ... how to get proxy to the add button
+                // handler
+                List {
+                    ForEach($rolls) { $roll in
+                        RollRowView(roll: $roll)
+                    }
+                    .onDelete(perform: delete)
                 }
-                .onDelete(perform: delete)
-            }
-            .navigationTitle("Rolls")
-            .navigationBarItems(trailing: addButton)
+                .navigationTitle("Rolls")
+                .navigationBarItems(leading: infoButton,
+                                    trailing: addButton)
+//            }
         }
     }
 
@@ -29,6 +35,14 @@ struct RollListView: View {
 
     private func addItem() {
         rolls.append(Roll(name: "New Roll"))
+    }
+
+    private var infoButton: Button<Image> {
+        return Button(action: {
+
+        }) {
+            Image(systemName: "info.circle.fill")
+        }
     }
 
     private var addButton: Button<Image> {

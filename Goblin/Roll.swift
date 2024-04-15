@@ -35,6 +35,7 @@ struct Roll: Identifiable, Codable {
 
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
+
         name = try values.decode(String.self, forKey: .name)
         script = try values.decode(String.self, forKey: .script)
         latest = try? values.decode(String?.self, forKey: .latest)
@@ -44,11 +45,14 @@ struct Roll: Identifiable, Codable {
 
     mutating func compile() {
         convertSmartQuotesToPlain()
-            expression = nil
+        expression = nil
+
         let scanner = Scanner(script)
         guard case .success(let tokens) = scanner.scan() else { return }
+
         let parser = Parser(tokens)
         guard case .success(let data) = parser.parse() else { return }
+
         expression = data.expression
     }
 
@@ -80,7 +84,8 @@ extension Roll {
         ]
 }
 
-extension Roll { // if only SwiftUI would allow you to disable smart quotes...
+extension Roll { 
+    // if only SwiftUI would allow you to disable smart quotes...
     private mutating func convertSmartQuotesToPlain() {
         script = script.replacingOccurrences(of: "“", with: #"""#)
             .replacingOccurrences(of: "”", with: #"""#)

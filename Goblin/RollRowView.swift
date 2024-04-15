@@ -14,9 +14,9 @@ struct RollRowView: View {
         HStack {
             DieView(roll: $roll)
 
-            NavigationLink(destination: {
+            NavigationLink(destination:
                 EditorView(roll: $roll)
-            }) {
+            ) {
                 RollDataView(roll: roll)
             }
         }
@@ -30,11 +30,12 @@ struct DieView: View {
         Image(systemName: "die.face.6.fill")
             .resizable()
             .scaledToFit()
-            .frame(width: 30.0)
+            .frame(width: 28.0)
             .foregroundColor(roll.compiled ? .red : .gray)
             .onTapGesture {
                 if roll.compiled {
                     roll.latest = roll.roll()
+                    // TODO: NSPasteboard has a completely different interface
                     UIPasteboard.general.string = roll.latest
                 }
             }
@@ -49,16 +50,20 @@ struct RollDataView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(roll.name)
+                .foregroundColor(.primary)
                 .font(.callout)
 
             if let latest = roll.latest {
                 Text(latest)
+                    .foregroundColor(.primary)
                     .font(.system(.footnote, design: .monospaced))
                     .italic()
             }
         }
     }
 }
+
+let rowBackgroundColor = UIColor.systemBackground
 
 struct RollRowView_Previews: PreviewProvider {
     static let roll = Roll(name: "Some Roll", script: "4d6", latest: "3 3 4 5")
@@ -78,6 +83,7 @@ struct RollRowView_Previews: PreviewProvider {
         RollRowView(roll: .constant(roll))
             .padding()
             .previewLayout(.sizeThatFits)
+            .background(Color(rowBackgroundColor))
             .colorScheme(.dark)
     }
 }

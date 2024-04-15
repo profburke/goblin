@@ -7,14 +7,30 @@
 
 import SwiftUI
 import Troll
-import UIKit
 
 @main
 struct GoblinApp: App {
+    @Environment(\.scenePhase) private var scenePhase
+    @State private var rolls: [Roll] = GoblinApp.loadRolls()
+
+    var body: some Scene {
+        WindowGroup {
+            RollListView(rolls: $rolls)
+        }
+        .onChange(of: scenePhase) { newPhase in
+            saveRolls(newPhase)
+        }
+    }
+}
+
+extension GoblinApp {
     static let rollFilename = "rolls.json"
 
-    @Environment(\.scenePhase) private var scenePhase
-    @State private var rolls: [Roll] = {
+    static private var saveFileURL: URL {
+        return URL.documentsDirectory.appendingPathComponent(rollFilename)
+    }
+
+    static private func loadRolls() -> [Roll] {
         let url = GoblinApp.saveFileURL
 
         if FileManager().fileExists(atPath: url.path),
@@ -23,29 +39,18 @@ struct GoblinApp: App {
            rolls.count >= 1 {
             return rolls
         } else {
-            // TODO: signal could not find custom data, reading defaults?
+            // TODO: signal could not find custom data, reading defaults
             return Roll.starterRolls
-        }
-    }()
-
-    var body: some Scene {
-        WindowGroup {
-            RollListView(rolls: $rolls)
-        }
-        .onChange(of: scenePhase) { newPhase in
-            if newPhase == .inactive {
-                if let data = try? JSONEncoder().encode(rolls) {
-                    try? data.write(to: GoblinApp.saveFileURL)
-                } else {
-                    // TODO: signal error if cannot save
-                }
-            }
         }
     }
 
-    static private var saveFileURL: URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentDirectory = paths[0]
-        return documentDirectory.appendingPathComponent(rollFilename)
+    private func saveRolls(_ newPhase: ScenePhase) {
+        if newPhase == .inactive {
+            if let data = try? JSONEncoder().encode(rolls) {
+                try? data.write(to: GoblinApp.saveFileURL)
+            } else {
+                // TODO: signal error if cannot save
+            }
+        }
     }
 }
