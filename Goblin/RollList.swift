@@ -14,20 +14,15 @@ struct RollList: View {
 
     var body: some View {
         NavigationView {
-//            ScrollViewReader { proxy in
-                // https://www.hackingwithswift.com/quick-start/swiftui/how-to-scroll-to-a-specific-row-in-a-list
-                // scroll to newly added item ... how to get proxy to the add button
-                // handler
-                List {
-                    ForEach($rolls) { $roll in
-                        RollRow(roll: $roll)
-                    }
-                    .onDelete(perform: delete)
+            List {
+                ForEach($rolls) { $roll in
+                    RollRow(roll: $roll)
                 }
-                .navigationTitle("Rolls")
-                .navigationBarItems(leading: infoButton,
-                                    trailing: addButton)
-//            }
+                .onDelete(perform: delete)
+            }
+            .navigationTitle("Rolls")
+            .navigationBarItems(leading: infoButton,
+                                trailing: addButton)
         }
     }
 

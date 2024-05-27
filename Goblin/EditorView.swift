@@ -9,7 +9,6 @@ import SwiftUI
 
 struct EditorView: View {
     @State private var showingSheet = false
-
     @Binding var roll: Roll
 
     private var flagColor: Color {
@@ -60,6 +59,7 @@ struct EditorView: View {
                         .frame(height: 200)
                 }
             }
+            
             Spacer()
         }
         // .fullScreenCover(isPresented: $showingSheet) {
