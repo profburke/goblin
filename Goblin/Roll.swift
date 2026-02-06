@@ -43,17 +43,28 @@ struct Roll: Identifiable, Codable {
         compile()
     }
 
-    mutating func compile() {
+    enum TranslationError: Error {
+        case generic(String)
+    }
+
+    @discardableResult
+    mutating func compile() -> Result<Void, TranslationError> {
         convertSmartQuotesToPlain()
         expression = nil
 
         let scanner = Scanner(script)
-        guard case .success(let tokens) = scanner.scan() else { return }
 
-        let parser = Parser(tokens)
-        guard case .success(let data) = parser.parse() else { return }
-
-        expression = data.expression
+        return scanner.scan()
+            .mapError { .generic($0.localizedDescription) }
+            .flatMap { tokens in
+                let parser = Parser(tokens)
+                return parser.parse()
+                    .mapError { .generic($0.localizedDescription) }
+                    .flatMap { data in
+                        expression = data.expression
+                        return .success(())
+                    }
+            }
     }
 
     func roll() -> String? {

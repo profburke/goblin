@@ -8,14 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		C945482A272F46420002F6F6 /* RollRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9454829272F46420002F6F6 /* RollRow.swift */; };
-		C953F0442757132600749B3A /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9903762272DA9F600AB2F38 /* EditorView.swift */; };
-		C953F0452757132A00749B3A /* RollList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A64F94272C6B8A00B6C58F /* RollList.swift */; };
-		C953F0462757132E00749B3A /* RollRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9454829272F46420002F6F6 /* RollRow.swift */; };
 		C9903763272DA9F600AB2F38 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9903762272DA9F600AB2F38 /* EditorView.swift */; };
 		C9903765272E00AD00AB2F38 /* Roll.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9903764272E00AD00AB2F38 /* Roll.swift */; };
 		C9903768272E162700AB2F38 /* Troll in Frameworks */ = {isa = PBXBuildFile; productRef = C9903767272E162700AB2F38 /* Troll */; };
-		C9914B0527530385001CBEF4 /* Roll.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9903764272E00AD00AB2F38 /* Roll.swift */; };
-		C9914B08275303B4001CBEF4 /* Troll in Frameworks */ = {isa = PBXBuildFile; productRef = C9914B07275303B4001CBEF4 /* Troll */; };
 		C9A64F93272C6B8A00B6C58F /* GoblinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A64F92272C6B8A00B6C58F /* GoblinApp.swift */; };
 		C9A64F95272C6B8A00B6C58F /* RollList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A64F94272C6B8A00B6C58F /* RollList.swift */; };
 		C9A64F97272C6B8E00B6C58F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9A64F96272C6B8E00B6C58F /* Assets.xcassets */; };
@@ -60,7 +55,6 @@
 		C9454829272F46420002F6F6 /* RollRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollRow.swift; sourceTree = "<group>"; };
 		C9903762272DA9F600AB2F38 /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
 		C9903764272E00AD00AB2F38 /* Roll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roll.swift; sourceTree = "<group>"; };
-		C9914AF6275301A7001CBEF4 /* Hobgoblin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hobgoblin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9A64F8F272C6B8A00B6C58F /* Goblin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Goblin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9A64F92272C6B8A00B6C58F /* GoblinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoblinApp.swift; sourceTree = "<group>"; };
 		C9A64F94272C6B8A00B6C58F /* RollList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollList.swift; sourceTree = "<group>"; };
@@ -81,14 +75,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C9914AF3275301A7001CBEF4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C9914B08275303B4001CBEF4 /* Troll in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C9A64F8C272C6B8A00B6C58F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -130,7 +116,6 @@
 			children = (
 				C9A64F8F272C6B8A00B6C58F /* Goblin.app */,
 				C9A64F9D272C6B8E00B6C58F /* Goblin WatchKit App.app */,
-				C9914AF6275301A7001CBEF4 /* Hobgoblin.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -209,26 +194,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C9914AF5275301A7001CBEF4 /* Hobgoblin */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C9914B02275301AA001CBEF4 /* Build configuration list for PBXNativeTarget "Hobgoblin" */;
-			buildPhases = (
-				C9914AF2275301A7001CBEF4 /* Sources */,
-				C9914AF3275301A7001CBEF4 /* Frameworks */,
-				C9914AF4275301A7001CBEF4 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Hobgoblin;
-			packageProductDependencies = (
-				C9914B07275303B4001CBEF4 /* Troll */,
-			);
-			productName = Hobgoblin;
-			productReference = C9914AF6275301A7001CBEF4 /* Hobgoblin.app */;
-			productType = "com.apple.product-type.application";
-		};
 		C9A64F8E272C6B8A00B6C58F /* Goblin */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9A64FC8272C6B9200B6C58F /* Build configuration list for PBXNativeTarget "Goblin" */;
@@ -278,9 +243,6 @@
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
-					C9914AF5275301A7001CBEF4 = {
-						CreatedOnToolsVersion = 13.0;
-					};
 					C9A64F8E272C6B8A00B6C58F = {
 						CreatedOnToolsVersion = 13.0;
 					};
@@ -307,19 +269,11 @@
 			targets = (
 				C9A64F8E272C6B8A00B6C58F /* Goblin */,
 				C9A64F9C272C6B8E00B6C58F /* Goblin WatchKit App */,
-				C9914AF5275301A7001CBEF4 /* Hobgoblin */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C9914AF4275301A7001CBEF4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C9A64F8D272C6B8A00B6C58F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -342,17 +296,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C9914AF2275301A7001CBEF4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C953F0462757132E00749B3A /* RollRow.swift in Sources */,
-				C953F0452757132A00749B3A /* RollList.swift in Sources */,
-				C953F0442757132600749B3A /* EditorView.swift in Sources */,
-				C9914B0527530385001CBEF4 /* Roll.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C9A64F8B272C6B8A00B6C58F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -389,68 +332,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		C9914B03275301AA001CBEF4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Hobgoblin/Hobgoblin.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"Hobgoblin/Preview Content\"";
-				DEVELOPMENT_TEAM = 2JBF6L5ZVQ;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 11.3;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.bluedino.Hobgoblin;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		C9914B04275301AA001CBEF4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Hobgoblin/Hobgoblin.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"Hobgoblin/Preview Content\"";
-				DEVELOPMENT_TEAM = 2JBF6L5ZVQ;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 11.3;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.bluedino.Hobgoblin;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
 		C9A64FBE272C6B9200B6C58F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -504,7 +385,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -560,7 +441,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -651,7 +532,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -682,7 +563,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -701,15 +582,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C9914B02275301AA001CBEF4 /* Build configuration list for PBXNativeTarget "Hobgoblin" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C9914B03275301AA001CBEF4 /* Debug */,
-				C9914B04275301AA001CBEF4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		C9A64F8A272C6B8A00B6C58F /* Build configuration list for PBXProject "Goblin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -752,11 +624,6 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		C9903767272E162700AB2F38 /* Troll */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C9903766272E162600AB2F38 /* XCRemoteSwiftPackageReference "troll" */;
-			productName = Troll;
-		};
-		C9914B07275303B4001CBEF4 /* Troll */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C9903766272E162600AB2F38 /* XCRemoteSwiftPackageReference "troll" */;
 			productName = Troll;
