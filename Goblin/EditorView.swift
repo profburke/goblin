@@ -7,9 +7,22 @@
 
 import SwiftUI
 
+enum CompileState {
+    case compiled   // last compile succeeded
+    case error      // last compile failed
+    case dirty      // script changed since last compile (or never compiled)
+}
+
 struct EditorView: View {
     @State private var showingSheet = false
     @Binding var roll: Roll
+
+    @State private var compileState: CompileState = .dirty
+    @State private var lastCompiledScript: String = ""
+    @State private var originalScript: String = ""
+    @State private var showBackAlert = false
+
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         VStack {
@@ -22,6 +35,42 @@ struct EditorView: View {
         }
         .sheet(isPresented: $showingSheet) {
             LanguageExplainerView()
+        }
+        .navigationBarBackButtonHidden(compileState == .dirty)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                if compileState == .dirty {
+                    Button {
+                        showBackAlert = true
+                    } label: {
+                        HStack(spacing: 4) {
+                            Image(systemName: "chevron.backward")
+                            Text("Back")
+                        }
+                    }
+                }
+            }
+        }
+        .alert("Uncompiled Changes", isPresented: $showBackAlert) {
+            Button("Compile") {
+                let result = roll.compile()
+                switch result {
+                case .success:
+                    compileState = .compiled
+                case .failure:
+                    compileState = .error
+                }
+                lastCompiledScript = roll.script
+                dismiss()
+            }
+            Button("Discard") {
+                roll.script = originalScript
+                roll.compile()
+                dismiss()
+            }
+            Button("Keep Editing", role: .cancel) { }
+        } message: {
+            Text("Your script has changes that haven't been compiled.")
         }
     }
 
@@ -37,26 +86,38 @@ struct EditorView: View {
         }
     }
 
-    private var flagColor: Color {
-        (roll.expression != nil) ? .green : .gray
+    private var stateIcon: some View {
+        switch compileState {
+        case .compiled:
+            return Image(systemName: "checkmark.circle.fill")
+                .foregroundColor(.blue)
+        case .error:
+            return Image(systemName: "exclamationmark.triangle.fill")
+                .foregroundColor(.orange)
+        case .dirty:
+            return Image(systemName: "flag.fill")
+                .foregroundColor(.gray)
+        }
     }
-
-    @State private var compiled = true
 
     private var controlPanel: some View {
         HStack {
-            Image(systemName: "flag.fill")
-                .renderingMode(.template)
-                .foregroundColor(flagColor)
+            stateIcon
 
             Button(action: {
-                roll.compile()
-                compiled = true
+                let result = roll.compile()
+                switch result {
+                case .success:
+                    compileState = .compiled
+                case .failure:
+                    compileState = .error
+                }
+                lastCompiledScript = roll.script
             }) {
                 Text("Compile")
             }
             .buttonStyle(BorderedButtonStyle())
-            .disabled(compiled)
+            .disabled(compileState != .dirty)
 
             Spacer()
 
@@ -67,8 +128,10 @@ struct EditorView: View {
             }
             .buttonStyle(BorderedButtonStyle())
         }
-        .onAppear() {
-            compiled = roll.expression != nil
+        .onAppear {
+            originalScript = roll.script
+            lastCompiledScript = roll.script
+            compileState = roll.expression != nil ? .compiled : .dirty
         }
     }
 
@@ -83,7 +146,11 @@ struct EditorView: View {
                 .disableAutocorrection(true)
                 .frame(height: 200)
                 .onChange(of: roll.script) {
-                    compiled = false
+                    let trimmedNew = roll.script.trimmingCharacters(in: .whitespacesAndNewlines)
+                    let trimmedOld = lastCompiledScript.trimmingCharacters(in: .whitespacesAndNewlines)
+                    if trimmedNew != trimmedOld {
+                        compileState = .dirty
+                    }
                 }
         }
     }
