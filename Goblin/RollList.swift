@@ -22,10 +22,12 @@ struct RollList: View {
                         RollRow(roll: $roll)
                     }
                     .onDelete(perform: delete)
+                    .onMove(perform: move)
                 }
                 .navigationTitle("Rolls")
                 .navigationBarItems(leading: infoButton,
                                     trailing: addButton)
+                .toolbar { EditButton() }
                 .navigationDestination(for: UUID.self) { id in
                     if let index = rolls.firstIndex(where: { $0.id == id }) {
                         EditorView(roll: $rolls[index])
@@ -47,6 +49,10 @@ struct RollList: View {
 
     private func delete(at offsets: IndexSet) {
         rolls.remove(atOffsets: offsets)
+    }
+
+    private func move(from source: IndexSet, to destination: Int) {
+        rolls.move(fromOffsets: source, toOffset: destination)
     }
 
     private func addItem() {
