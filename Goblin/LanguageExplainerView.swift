@@ -16,10 +16,12 @@ struct LanguageExplainerView: View {
                 VStack(alignment: .leading, spacing: 24) {
 
                     // MARK: - Overview
+
                     VStack(alignment: .leading, spacing: 8) {
                         Label("About Troll", systemImage: "die.face.5")
-                            .font(.headline)
+                            .font(.largeTitle)
                             .foregroundStyle(.purple)
+                            .padding(.bottom, 16)
 
                         Text("Goblin uses the **Troll** dice language to describe and evaluate dice rolls from tabletop games. A single die is written as **d** followed by the number of faces — for example `d20` for a twenty-sided die. To roll multiple dice, prefix with a count like `3d6`, which produces a **collection** of individual results.")
 
@@ -27,9 +29,10 @@ struct LanguageExplainerView: View {
                     }
 
                     // MARK: - Operations
+
                     VStack(alignment: .leading, spacing: 10) {
                         Label("Operations", systemImage: "function")
-                            .font(.headline)
+                            .font(.largeTitle)
                             .foregroundStyle(.orange)
 
                         operationRow(
@@ -55,9 +58,10 @@ struct LanguageExplainerView: View {
                     }
 
                     // MARK: - Examples
+
                     VStack(alignment: .leading, spacing: 12) {
                         Label("Examples", systemImage: "text.page")
-                            .font(.headline)
+                            .font(.largeTitle)
                             .foregroundStyle(.green)
 
                         exampleCard(code: "d20", description: "Roll a single twenty-sided die")
@@ -68,6 +72,7 @@ struct LanguageExplainerView: View {
                     }
 
                     // MARK: - Learn More
+
                     VStack(spacing: 8) {
                         Link(destination: URL(string: "https://hjemmesider.diku.dk/~torbenm/Troll/")!) {
                             Label("Troll Language Reference", systemImage: "safari")
@@ -103,6 +108,7 @@ struct LanguageExplainerView: View {
         VStack(alignment: .leading, spacing: 2) {
             Text(name)
                 .fontWeight(.semibold)
+                .padding(.bottom, 6)
             Text(detail)
                 .font(.subheadline)
                 .foregroundStyle(.primary)

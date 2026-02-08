@@ -25,6 +25,7 @@
 		C9A64FB8272C6B9200B6C58F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9A64FB7272C6B9200B6C58F /* Assets.xcassets */; };
 		C9A64FBB272C6B9200B6C58F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9A64FBA272C6B9200B6C58F /* Preview Assets.xcassets */; };
 		C9FF8EB527AB6548004A1B09 /* LanguageExplainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FF8EB427AB6548004A1B09 /* LanguageExplainerView.swift */; };
+		C9FF8EB727AB6549004A1B09 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FF8EB627AB6549004A1B09 /* InfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		C9A64FBC272C6B9200B6C58F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9A64FBD272C6B9200B6C58F /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		C9FF8EB427AB6548004A1B09 /* LanguageExplainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageExplainerView.swift; sourceTree = "<group>"; };
+		C9FF8EB627AB6549004A1B09 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				C9903762272DA9F600AB2F38 /* EditorView.swift */,
+				C9FF8EB627AB6549004A1B09 /* InfoView.swift */,
 				C9A64F94272C6B8A00B6C58F /* RollList.swift */,
 				C9454829272F46420002F6F6 /* RollRow.swift */,
 				C9FF8EB427AB6548004A1B09 /* LanguageExplainerView.swift */,
@@ -301,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9903763272DA9F600AB2F38 /* EditorView.swift in Sources */,
+				C9FF8EB727AB6549004A1B09 /* InfoView.swift in Sources */,
 				C9FF8EB527AB6548004A1B09 /* LanguageExplainerView.swift in Sources */,
 				C9A64F95272C6B8A00B6C58F /* RollList.swift in Sources */,
 				C9903765272E00AD00AB2F38 /* Roll.swift in Sources */,

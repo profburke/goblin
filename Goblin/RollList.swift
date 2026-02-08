@@ -7,12 +7,11 @@
 
 import SwiftUI
 
-// TODO: use the new(ish) HintKit ...
-
 struct RollList: View {
     @Binding var rolls: [Roll]
     @State private var path: [UUID] = []
     @State private var pendingNewRollID: UUID?
+    @State private var showingInfo = false
 
     var body: some View {
         NavigationStack(path: $path) {
@@ -45,6 +44,9 @@ struct RollList: View {
                 }
             }
         }
+        .sheet(isPresented: $showingInfo) {
+            InfoView()
+        }
     }
 
     private func delete(at offsets: IndexSet) {
@@ -63,9 +65,9 @@ struct RollList: View {
 
     private var infoButton: Button<Image> {
         return Button(action: {
-
+            showingInfo.toggle()
         }) {
-            Image(systemName: "info.circle.fill")
+            Image(systemName: "info.circle")
         }
     }
 
