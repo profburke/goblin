@@ -8,6 +8,14 @@
 import Foundation
 import Troll
 
+class CollectingErrorReporter: ErrorReporter {
+    private(set) var messages: [String] = []
+
+    func error(line: Int, position: Int, message: String) {
+        messages.append("[line \(line), pos \(position)] \(message)")
+    }
+}
+
 struct Roll: Identifiable, Codable {
     let id = UUID()
     var name: String
@@ -52,14 +60,19 @@ struct Roll: Identifiable, Codable {
         convertSmartQuotesToPlain()
         expression = nil
 
-        let scanner = Scanner(script)
+        let reporter = CollectingErrorReporter()
+        let scanner = Scanner(script, reporter: reporter)
 
         return scanner.scan()
-            .mapError { .generic($0.localizedDescription) }
+            .mapError { _ in
+                .generic(reporter.messages.joined(separator: "\n"))
+            }
             .flatMap { tokens in
-                let parser = Parser(tokens)
+                let parser = Parser(tokens, reporter: reporter)
                 return parser.parse()
-                    .mapError { .generic($0.localizedDescription) }
+                    .mapError { _ in
+                        .generic(reporter.messages.joined(separator: "\n"))
+                    }
                     .flatMap { data in
                         expression = data.expression
                         return .success(())

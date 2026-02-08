@@ -18,6 +18,7 @@ struct EditorView: View {
     @Binding var roll: Roll
 
     @State private var compileState: CompileState = .dirty
+    @State private var compileError: String?
     @State private var lastCompiledScript: String = ""
     @State private var originalScript: String = ""
     @State private var showBackAlert = false
@@ -57,8 +58,12 @@ struct EditorView: View {
                 switch result {
                 case .success:
                     compileState = .compiled
-                case .failure:
+                    compileError = nil
+                case .failure(let error):
                     compileState = .error
+                    if case .generic(let message) = error {
+                        compileError = message
+                    }
                 }
                 lastCompiledScript = roll.script
                 dismiss()
@@ -109,8 +114,12 @@ struct EditorView: View {
                 switch result {
                 case .success:
                     compileState = .compiled
-                case .failure:
+                    compileError = nil
+                case .failure(let error):
                     compileState = .error
+                    if case .generic(let message) = error {
+                        compileError = message
+                    }
                 }
                 lastCompiledScript = roll.script
             }) {
@@ -138,6 +147,12 @@ struct EditorView: View {
     private var editorPanel: some View {
         Section(header: Text("Script")) {
             controlPanel
+
+            if compileState == .error, let errorMessage = compileError {
+                Text(errorMessage)
+                    .font(.caption.monospaced())
+                    .foregroundStyle(.red)
+            }
 
             // TODO: use onCommit to attempt to compile?
             TextEditor(text: $roll.script)
