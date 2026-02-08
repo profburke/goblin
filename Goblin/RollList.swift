@@ -11,18 +11,37 @@ import SwiftUI
 
 struct RollList: View {
     @Binding var rolls: [Roll]
+    @State private var path: [UUID] = []
+    @State private var pendingNewRollID: UUID?
 
     var body: some View {
-        NavigationView {
-            List {
-                ForEach($rolls) { $roll in
-                    RollRow(roll: $roll)
+        NavigationStack(path: $path) {
+            ScrollViewReader { proxy in
+                List {
+                    ForEach($rolls) { $roll in
+                        RollRow(roll: $roll)
+                    }
+                    .onDelete(perform: delete)
                 }
-                .onDelete(perform: delete)
+                .navigationTitle("Rolls")
+                .navigationBarItems(leading: infoButton,
+                                    trailing: addButton)
+                .navigationDestination(for: UUID.self) { id in
+                    if let index = rolls.firstIndex(where: { $0.id == id }) {
+                        EditorView(roll: $rolls[index])
+                    }
+                }
+                .onChange(of: pendingNewRollID) { _, newValue in
+                    guard let id = newValue else { return }
+                    withAnimation {
+                        proxy.scrollTo(id, anchor: .bottom)
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        path.append(id)
+                        pendingNewRollID = nil
+                    }
+                }
             }
-            .navigationTitle("Rolls")
-            .navigationBarItems(leading: infoButton,
-                                trailing: addButton)
         }
     }
 
@@ -31,7 +50,9 @@ struct RollList: View {
     }
 
     private func addItem() {
-        rolls.append(Roll(name: "New Roll"))
+        let newRoll = Roll(name: "New Roll")
+        rolls.append(newRoll)
+        pendingNewRollID = newRoll.id
     }
 
     private var infoButton: Button<Image> {

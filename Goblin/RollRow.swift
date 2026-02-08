@@ -14,9 +14,7 @@ struct RollRow: View {
         HStack {
             DieView(roll: $roll)
 
-            NavigationLink(destination:
-                EditorView(roll: $roll)
-            ) {
+            NavigationLink(value: roll.id) {
                 RollDataView(roll: roll)
             }
         }
