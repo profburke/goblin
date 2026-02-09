@@ -16,8 +16,8 @@ class CollectingErrorReporter: ErrorReporter {
     }
 }
 
-struct Roll: Identifiable, Codable {
-    let id = UUID()
+struct Roll: Identifiable, Codable, Hashable {
+    var id: UUID
     var name: String
     var script: String
     var latest: String?
@@ -28,12 +28,14 @@ struct Roll: Identifiable, Codable {
     }
 
     enum CodingKeys: CodingKey {
+        case id
         case name
         case script
         case latest
     }
 
     init(name: String, script: String = "d6", latest: String? = nil) {
+        self.id = UUID()
         self.name = name
         self.script = script
         self.latest = latest
@@ -44,11 +46,23 @@ struct Roll: Identifiable, Codable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
 
+        id = try values.decode(UUID.self, forKey: .id)
         name = try values.decode(String.self, forKey: .name)
         script = try values.decode(String.self, forKey: .script)
         latest = try? values.decode(String?.self, forKey: .latest)
 
         compile()
+    }
+
+    static func == (lhs: Roll, rhs: Roll) -> Bool {
+        lhs.id == rhs.id
+        && lhs.name == rhs.name
+        && lhs.script == rhs.script
+        && lhs.latest == rhs.latest
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 
     enum TranslationError: Error {

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,6 +24,19 @@
 		C9A64FB6272C6B9000B6C58F /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A64FB5272C6B9000B6C58F /* ComplicationController.swift */; };
 		C9A64FB8272C6B9200B6C58F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9A64FB7272C6B9200B6C58F /* Assets.xcassets */; };
 		C9A64FBB272C6B9200B6C58F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9A64FBA272C6B9200B6C58F /* Preview Assets.xcassets */; };
+		C9C78B132F3A95090052A220 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C78B122F3A95090052A220 /* WidgetKit.framework */; };
+		C9C78B152F3A95090052A220 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C78B142F3A95090052A220 /* SwiftUI.framework */; };
+		C9C78B202F3A950B0052A220 /* GoblinWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C9C78B112F3A95090052A220 /* GoblinWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C9C78B292F3A95EC0052A220 /* Troll in Frameworks */ = {isa = PBXBuildFile; productRef = C9C78B282F3A95EC0052A220 /* Troll */; };
+		C9C78B2A2F3A95FF0052A220 /* Roll.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9903764272E00AD00AB2F38 /* Roll.swift */; };
+		C9C78B302F3A965B0052A220 /* RollStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C78B2E2F3A965B0052A220 /* RollStore.swift */; };
+		C9C78B312F3A965B0052A220 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C78B2B2F3A965B0052A220 /* AppConstants.swift */; };
+		C9C78B322F3A965B0052A220 /* RollAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C78B2C2F3A965B0052A220 /* RollAppIntent.swift */; };
+		C9C78B332F3A965B0052A220 /* RollEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C78B2D2F3A965B0052A220 /* RollEntity.swift */; };
+		C9C78B342F3A965B0052A220 /* RollStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C78B2E2F3A965B0052A220 /* RollStore.swift */; };
+		C9C78B352F3A965B0052A220 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C78B2B2F3A965B0052A220 /* AppConstants.swift */; };
+		C9C78B362F3A965B0052A220 /* RollAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C78B2C2F3A965B0052A220 /* RollAppIntent.swift */; };
+		C9C78B372F3A965B0052A220 /* RollEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C78B2D2F3A965B0052A220 /* RollEntity.swift */; };
 		C9FF8EB527AB6548004A1B09 /* LanguageExplainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FF8EB427AB6548004A1B09 /* LanguageExplainerView.swift */; };
 		C9FF8EB727AB6549004A1B09 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FF8EB627AB6549004A1B09 /* InfoView.swift */; };
 /* End PBXBuildFile section */
@@ -35,6 +48,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = C9A64F9C272C6B8E00B6C58F;
 			remoteInfo = "Goblin WatchKit App";
+		};
+		C9C78B1E2F3A950B0052A220 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9A64F87272C6B8A00B6C58F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9C78B102F3A95090052A220;
+			remoteInfo = GoblinWidgetExtension;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -48,6 +68,17 @@
 				C9A64F9E272C6B8E00B6C58F /* Goblin WatchKit App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9C78B212F3A950B0052A220 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C9C78B202F3A950B0052A220 /* GoblinWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -72,9 +103,32 @@
 		C9A64FBA272C6B9200B6C58F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C9A64FBC272C6B9200B6C58F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9A64FBD272C6B9200B6C58F /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		C9C78B112F3A95090052A220 /* GoblinWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GoblinWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9C78B122F3A95090052A220 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		C9C78B142F3A95090052A220 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		C9C78B262F3A953F0052A220 /* Goblin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Goblin.entitlements; sourceTree = "<group>"; };
+		C9C78B272F3A956D0052A220 /* GoblinWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GoblinWidgetExtension.entitlements; sourceTree = "<group>"; };
+		C9C78B2B2F3A965B0052A220 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		C9C78B2C2F3A965B0052A220 /* RollAppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollAppIntent.swift; sourceTree = "<group>"; };
+		C9C78B2D2F3A965B0052A220 /* RollEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollEntity.swift; sourceTree = "<group>"; };
+		C9C78B2E2F3A965B0052A220 /* RollStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollStore.swift; sourceTree = "<group>"; };
 		C9FF8EB427AB6548004A1B09 /* LanguageExplainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageExplainerView.swift; sourceTree = "<group>"; };
 		C9FF8EB627AB6549004A1B09 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		C9C78B242F3A950B0052A220 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = C9C78B102F3A95090052A220 /* GoblinWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		C9C78B162F3A95090052A220 /* GoblinWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (C9C78B242F3A950B0052A220 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = GoblinWidget; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C9A64F8C272C6B8A00B6C58F /* Frameworks */ = {
@@ -92,12 +146,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C9C78B0E2F3A95090052A220 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9C78B292F3A95EC0052A220 /* Troll in Frameworks */,
+				C9C78B152F3A95090052A220 /* SwiftUI.framework in Frameworks */,
+				C9C78B132F3A95090052A220 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		C9914B06275303B4001CBEF4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C9C78B122F3A95090052A220 /* WidgetKit.framework */,
+				C9C78B142F3A95090052A220 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -105,9 +171,12 @@
 		C9A64F86272C6B8A00B6C58F = {
 			isa = PBXGroup;
 			children = (
+				C9C78B2F2F3A965B0052A220 /* Shared */,
+				C9C78B272F3A956D0052A220 /* GoblinWidgetExtension.entitlements */,
 				C9A64F91272C6B8A00B6C58F /* Goblin */,
 				C9A64FA1272C6B8E00B6C58F /* Goblin WatchKit App */,
 				C9A64FAC272C6B9000B6C58F /* Goblin WatchKit Extension */,
+				C9C78B162F3A95090052A220 /* GoblinWidget */,
 				C9A64F90272C6B8A00B6C58F /* Products */,
 				C9914B06275303B4001CBEF4 /* Frameworks */,
 			);
@@ -118,6 +187,7 @@
 			children = (
 				C9A64F8F272C6B8A00B6C58F /* Goblin.app */,
 				C9A64F9D272C6B8E00B6C58F /* Goblin WatchKit App.app */,
+				C9C78B112F3A95090052A220 /* GoblinWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,6 +195,7 @@
 		C9A64F91272C6B8A00B6C58F /* Goblin */ = {
 			isa = PBXGroup;
 			children = (
+				C9C78B262F3A953F0052A220 /* Goblin.entitlements */,
 				C9A64F96272C6B8E00B6C58F /* Assets.xcassets */,
 				C9A64F92272C6B8A00B6C58F /* GoblinApp.swift */,
 				C9F35C222746CAE200A87CB3 /* Models */,
@@ -174,6 +245,17 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		C9C78B2F2F3A965B0052A220 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				C9C78B2B2F3A965B0052A220 /* AppConstants.swift */,
+				C9C78B2C2F3A965B0052A220 /* RollAppIntent.swift */,
+				C9C78B2D2F3A965B0052A220 /* RollEntity.swift */,
+				C9C78B2E2F3A965B0052A220 /* RollStore.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		C9F35C212746CAAF00A87CB3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,11 +287,13 @@
 				C9A64F8C272C6B8A00B6C58F /* Frameworks */,
 				C9A64F8D272C6B8A00B6C58F /* Resources */,
 				C9A64FC7272C6B9200B6C58F /* Embed Watch Content */,
+				C9C78B212F3A950B0052A220 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				C9A64FA0272C6B8E00B6C58F /* PBXTargetDependency */,
+				C9C78B1F2F3A950B0052A220 /* PBXTargetDependency */,
 			);
 			name = Goblin;
 			packageProductDependencies = (
@@ -236,6 +320,29 @@
 			productReference = C9A64F9D272C6B8E00B6C58F /* Goblin WatchKit App.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C9C78B102F3A95090052A220 /* GoblinWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9C78B252F3A950B0052A220 /* Build configuration list for PBXNativeTarget "GoblinWidgetExtension" */;
+			buildPhases = (
+				C9C78B0D2F3A95090052A220 /* Sources */,
+				C9C78B0E2F3A95090052A220 /* Frameworks */,
+				C9C78B0F2F3A95090052A220 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				C9C78B162F3A95090052A220 /* GoblinWidget */,
+			);
+			name = GoblinWidgetExtension;
+			packageProductDependencies = (
+				C9C78B282F3A95EC0052A220 /* Troll */,
+			);
+			productName = GoblinWidgetExtension;
+			productReference = C9C78B112F3A95090052A220 /* GoblinWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -243,7 +350,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1300;
+				LastSwiftUpdateCheck = 2620;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					C9A64F8E272C6B8A00B6C58F = {
@@ -251,6 +358,9 @@
 					};
 					C9A64F9C272C6B8E00B6C58F = {
 						CreatedOnToolsVersion = 13.0;
+					};
+					C9C78B102F3A95090052A220 = {
+						CreatedOnToolsVersion = 26.2;
 					};
 				};
 			};
@@ -272,6 +382,7 @@
 			targets = (
 				C9A64F8E272C6B8A00B6C58F /* Goblin */,
 				C9A64F9C272C6B8E00B6C58F /* Goblin WatchKit App */,
+				C9C78B102F3A95090052A220 /* GoblinWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -296,6 +407,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C9C78B0F2F3A95090052A220 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -309,6 +427,10 @@
 				C9A64F95272C6B8A00B6C58F /* RollList.swift in Sources */,
 				C9903765272E00AD00AB2F38 /* Roll.swift in Sources */,
 				C9A64F93272C6B8A00B6C58F /* GoblinApp.swift in Sources */,
+				C9C78B342F3A965B0052A220 /* RollStore.swift in Sources */,
+				C9C78B352F3A965B0052A220 /* AppConstants.swift in Sources */,
+				C9C78B362F3A965B0052A220 /* RollAppIntent.swift in Sources */,
+				C9C78B372F3A965B0052A220 /* RollEntity.swift in Sources */,
 				C945482A272F46420002F6F6 /* RollRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,6 +447,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C9C78B0D2F3A95090052A220 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9C78B302F3A965B0052A220 /* RollStore.swift in Sources */,
+				C9C78B312F3A965B0052A220 /* AppConstants.swift in Sources */,
+				C9C78B322F3A965B0052A220 /* RollAppIntent.swift in Sources */,
+				C9C78B332F3A965B0052A220 /* RollEntity.swift in Sources */,
+				C9C78B2A2F3A95FF0052A220 /* Roll.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -332,6 +466,11 @@
 			isa = PBXTargetDependency;
 			target = C9A64F9C272C6B8E00B6C58F /* Goblin WatchKit App */;
 			targetProxy = C9A64F9F272C6B8E00B6C58F /* PBXContainerItemProxy */;
+		};
+		C9C78B1F2F3A950B0052A220 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C9C78B102F3A95090052A220 /* GoblinWidgetExtension */;
+			targetProxy = C9C78B1E2F3A950B0052A220 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -456,7 +595,6 @@
 		C9A64FC5272C6B9200B6C58F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -489,7 +627,6 @@
 		C9A64FC6272C6B9200B6C58F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -525,6 +662,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Goblin/Goblin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Goblin/Preview Content\"";
@@ -556,6 +694,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Goblin/Goblin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Goblin/Preview Content\"";
@@ -577,6 +716,82 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C9C78B222F3A950B0052A220 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = GoblinWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2JBF6L5ZVQ;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GoblinWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GoblinWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.bluedino.Goblin.GoblinWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C9C78B232F3A950B0052A220 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = GoblinWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2JBF6L5ZVQ;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GoblinWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GoblinWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.bluedino.Goblin.GoblinWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -613,6 +828,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		C9C78B252F3A950B0052A220 /* Build configuration list for PBXNativeTarget "GoblinWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9C78B222F3A950B0052A220 /* Debug */,
+				C9C78B232F3A950B0052A220 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -628,6 +852,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		C9903767272E162700AB2F38 /* Troll */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C9903766272E162600AB2F38 /* XCRemoteSwiftPackageReference "troll" */;
+			productName = Troll;
+		};
+		C9C78B282F3A95EC0052A220 /* Troll */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C9903766272E162600AB2F38 /* XCRemoteSwiftPackageReference "troll" */;
 			productName = Troll;
