@@ -171,14 +171,12 @@ struct EditorView: View {
     }
 }
 
-struct EditorView_Previews: PreviewProvider {
-    static var previews: some View {
-        EditorView(roll: .constant(Roll(name: "Sample")))
-            .previewLayout(.sizeThatFits)
-            .colorScheme(.dark)
+#Preview("Dark") {
+    EditorView(roll: .constant(Roll(name: "Sample")))
+        .colorScheme(.dark)
+}
 
-        EditorView(roll: .constant(Roll(name: "Sample")))
-            .previewLayout(.sizeThatFits)
-            .colorScheme(.light)
-    }
+#Preview("Light") {
+    EditorView(roll: .constant(Roll(name: "Sample")))
+        .colorScheme(.light)
 }

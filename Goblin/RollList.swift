@@ -80,13 +80,12 @@ struct RollList: View {
     }
 }
 
-struct RollListView_Previews: PreviewProvider {
+#Preview("Dark") {
+    RollList(rolls: .constant(Roll.starterRolls))
+        .colorScheme(.dark)
+}
 
-    static var previews: some View {
-        RollList(rolls: .constant(Roll.starterRolls))
-            .colorScheme(.dark)
-
-        RollList(rolls: .constant(Roll.starterRolls))
-            .colorScheme(.light)
-    }
+#Preview("Light") {
+    RollList(rolls: .constant(Roll.starterRolls))
+        .colorScheme(.light)
 }

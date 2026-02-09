@@ -62,27 +62,21 @@ struct RollDataView: View {
     }
 }
 
-let rowBackgroundColor = UIColor.systemBackground
+#Preview("Compiled — Light", traits: .sizeThatFitsLayout) {
+    RollRow(roll: .constant(Roll(name: "Some Roll", script: "4d6", latest: "3 3 4 5")))
+        .padding()
+        .colorScheme(.light)
+}
 
-struct RollRowView_Previews: PreviewProvider {
-    static let roll = Roll(name: "Some Roll", script: "4d6", latest: "3 3 4 5")
-    static let uncompiledRoll = Roll(name: "Won't Work", script: "2....4")
+#Preview("Uncompiled — Light", traits: .sizeThatFitsLayout) {
+    RollRow(roll: .constant(Roll(name: "Won't Work", script: "2....4")))
+        .padding()
+        .colorScheme(.light)
+}
 
-    static var previews: some View {
-        RollRow(roll: .constant(roll))
-            .padding()
-            .previewLayout(.sizeThatFits)
-            .colorScheme(.light)
-
-        RollRow(roll: .constant(uncompiledRoll))
-            .padding()
-            .previewLayout(.sizeThatFits)
-            .colorScheme(.light)
-
-        RollRow(roll: .constant(roll))
-            .padding()
-            .previewLayout(.sizeThatFits)
-            .background(Color(rowBackgroundColor))
-            .colorScheme(.dark)
-    }
+#Preview("Compiled — Dark", traits: .sizeThatFitsLayout) {
+    RollRow(roll: .constant(Roll(name: "Some Roll", script: "4d6", latest: "3 3 4 5")))
+        .padding()
+        .background(Color(UIColor.systemBackground))
+        .colorScheme(.dark)
 }

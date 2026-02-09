@@ -131,8 +131,6 @@ struct LanguageExplainerView: View {
     }
 }
 
-struct LanguageExplainerView_Previews: PreviewProvider {
-    static var previews: some View {
-        LanguageExplainerView()
-    }
+#Preview {
+    LanguageExplainerView()
 }

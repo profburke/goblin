@@ -20,7 +20,7 @@ struct InfoView: View {
                     VStack(spacing: 8) {
                         Image(systemName: "dice.fill")
                             .font(.system(size: 60))
-                            .foregroundColor(.red)
+                            .foregroundColor(.purple)
 
                         Text("Goblin")
                             .font(.title.bold())
@@ -105,12 +105,12 @@ struct InfoView: View {
     }
 }
 
-struct InfoView_Previews: PreviewProvider {
-    static var previews: some View {
-        InfoView()
-            .colorScheme(.dark)
+#Preview("Dark") {
+    InfoView()
+        .colorScheme(.dark)
+}
 
-        InfoView()
-            .colorScheme(.light)
-    }
+#Preview("Light") {
+    InfoView()
+        .colorScheme(.light)
 }
