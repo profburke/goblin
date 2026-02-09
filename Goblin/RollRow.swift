@@ -29,12 +29,13 @@ struct DieView: View {
             .resizable()
             .scaledToFit()
             .frame(width: 28.0)
-            .foregroundColor(roll.compiled ? .red : .gray)
+            .foregroundColor(roll.compiled ? .purple : .gray)
             .onTapGesture {
                 if roll.compiled {
                     roll.latest = roll.roll()
-                    // TODO: NSPasteboard has a completely different interface
+                    // NOTE: NSPasteboard has a completely different interface
                     UIPasteboard.general.string = roll.latest
+                    UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
                 }
             }
             .padding(.trailing, 10.0)

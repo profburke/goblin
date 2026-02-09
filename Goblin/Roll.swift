@@ -99,13 +99,17 @@ struct Roll: Identifiable, Codable {
 
 extension Roll {
     static var starterRolls: [Roll] = [
-            Roll(name: "D&D Attribute", script: "x := largest 3 4d6; [sum x, x]"),
-            Roll(name: "D&D Character Gen", script: #""Str |>Dex|>Con|>Int|>Wis|>Chr" || 6'sum largest 3 4d6"#),
-            Roll(name: "Yahtzee", script: "5d6"),
-            Roll(name: "d6"),
-            Roll(name: "This should not be rollable", script: "12......14"),
-            Roll(name: "Ridiculous", script: "40 d7"),
-        ]
+        Roll(name: "Tap die to roll", script: "d6"),
+        Roll(name: "Tap elsewhere to edit", script: "d10 + d20"),
+        Roll(name: "Rolls copied to clipboard"),
+        Roll(name: "Press info button in editor"),
+        Roll(name: "To learn about Troll scripting"),
+        Roll(name: "D&D Attribute", script: "x := largest 3 4d6; [sum x, x]"),
+        Roll(name: "D&D Character Gen", script: #""Str |>Dex|>Con|>Int|>Wis|>Chr" || 6'sum largest 3 4d6"#),
+        Roll(name: "Yahtzee", script: "5d6"),
+        Roll(name: "Ridiculous", script: "40 d7"),
+        Roll(name: "Pizza or Buger", script: "if ?0.5 then \"🍕\" else \"🍔\""),
+    ]
 }
 
 extension Roll { 
