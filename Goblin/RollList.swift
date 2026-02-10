@@ -34,10 +34,12 @@ struct RollList: View {
                 }
                 .onChange(of: pendingNewRollID) { _, newValue in
                     guard let id = newValue else { return }
-                    withAnimation {
-                        proxy.scrollTo(id, anchor: .bottom)
-                    }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    Task {
+                        try? await Task.sleep(for: .milliseconds(100))
+                        withAnimation {
+                            proxy.scrollTo(id, anchor: .bottom)
+                        }
+                        try? await Task.sleep(for: .milliseconds(300))
                         path.append(id)
                         pendingNewRollID = nil
                     }
